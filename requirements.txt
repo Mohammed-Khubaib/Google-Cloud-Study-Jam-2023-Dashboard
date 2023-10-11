@@ -1,8 +1,8 @@
-numpy==1.23.5
-pandas==1.5.3
-st_gsheets_connection==0.0.3
-streamlit==1.27.2
-streamlit_elements==0.1.0
-streamlit_lottie==0.0.3
-streamlit_nivo==0.1.8
-streamlit_on_Hover_tabs==1.0.1
+numpy
+pandas
+st_gsheets_connection
+streamlit
+streamlit_elements
+streamlit_lottie
+streamlit_nivo
+streamlit_on_Hover_tabs
