@@ -10,7 +10,7 @@ from streamlit_elements import nivo
 from streamlit_elements import elements, mui
 from streamlit_gsheets import GSheetsConnection
 
-st.set_page_config('DASHBOARD',layout="wide")
+st.set_page_config('GDSC MCET',page_icon="./assets/logo.png",layout="wide")
 st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
 #load lottie files
 def load_lottie_file(filepath:str):
@@ -173,7 +173,7 @@ with st.sidebar:
     st_lottie(lottie_file2,speed=0.5,reverse=False,height=100,width=260)
     # tabs = on_hover_tabs(tabName=['Dashboard','Cloud Foundations','GenAI'], 
     tabs = on_hover_tabs(tabName=['Dashboard'], 
-                         iconName=['bar_chart_4_bars',  'cloud','sports_esports'], default_choice=0,
+                         iconName=['bar_chart_4_bars', 'cloud','sports_esports'], default_choice=0,
                          styles = {'navtab': {'background-color':'#272731',
                                                   'color': '#818181',
                                                   'font-size': '18px',
@@ -227,9 +227,18 @@ if tabs =='Dashboard':
         #  # Print the counts 
         # st.dataframe(Df)
     st.divider()
-    tab1,tab2,tab3,tab4 = st.tabs(['$$\color{skyblue}\\text{Leader Board}$$','$$\color{LimeGreen}\\text{Redemption}$$','$$\color{orange}\\text{Total Completions of both Pathways}$$','$$\color{red}\\text{Participant Progress}$$'])
+    listTabs = [
+    '$$\color{skyblue}\\text{Leader Board}$$',
+    '$$\color{LimeGreen}\\text{Redemption}$$',
+    '$$\color{orange}\\text{Total Completions of both Pathways}$$',
+    '$$\color{red}\\text{Participant Progress}$$'
+    ]
+    whitespace = 5
+    # tab1,tab2,tab3,tab4 = st.tabs(['$$\color{skyblue}\\text{Leader Board}$$','$$\color{LimeGreen}\\text{Redemption}$$','$$\color{orange}\\text{Total Completions of both Pathways}$$','$$\color{red}\\text{Participant Progress}$$'])
+    tab_labels = [s.center(len(s) + whitespace, "\u2001") for s in listTabs]
+    tab = st.tabs(tab_labels)
     #----
-    with tab2:
+    with tab[1]:
         st.markdown(
         f'<h1 style="font-family: your-font-family; color: limegreen;">Redemption Status</h1>',
         unsafe_allow_html=True
@@ -237,7 +246,7 @@ if tabs =='Dashboard':
         if file is not None:
             pieChart("Redemption Status",Ryes_count,Rno_count)
         st.divider()
-    with tab3:
+    with tab[2]:
         st.markdown(
            f'<h3 style="font-family: your-font-family; color:orange">Total Completions of both Pathways</h3>',
             unsafe_allow_html=True
@@ -247,7 +256,7 @@ if tabs =='Dashboard':
         st.divider()
 
     #---------------------
-    with tab1:
+    with tab[0]:
         st.markdown(
            f'<h1 style="font-family: your-font-family; color: skyblue;">Leader board</h1>',
             unsafe_allow_html=True
@@ -274,7 +283,7 @@ if tabs =='Dashboard':
             st.dataframe(Ndf[["Student Name","# of Courses Completed","# of GenAI Game Completed","# of Skill Badges Completed"]].head(10),use_container_width=True)
             st.divider()
     #-------------------
-    with tab4:
+    with tab[3]:
         st.markdown(
         f'<h3 style="font-family: your-font-family; color: OrangeRed;">If you are a participant then enter Your Name To know your progress :</h3>',
         unsafe_allow_html=True
@@ -319,4 +328,4 @@ if tabs =='Cloud Foundations':
     - ### Perform Foundational Data, ML, and AI Tasks in Google Cloud
     """)
 with c1: 
-    st_lottie(lottie_file1,speed=0.5,reverse=False,height=145,width=400)
+    st_lottie(lottie_file1,speed=0.5,reverse=False,height=150,width=300)
