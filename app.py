@@ -8,7 +8,7 @@ from streamlit_lottie import st_lottie
 from st_on_hover_tabs import on_hover_tabs
 from streamlit_elements import nivo
 from streamlit_elements import elements, mui
-import nivo_chart as nc
+from streamlit_gsheets import GSheetsConnection
 
 st.set_page_config('DASHBOARD',layout="wide")
 st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
@@ -200,16 +200,22 @@ if tabs =='Dashboard':
     formatted_date = today.strftime("%d/%m/%Y")
     st.header(formatted_date)
     # file = st.file_uploader("Upload The Results csv file",type='csv')
-    file = "./assets/Methodist College of Engineering & Technology - Hyderabad [11 Oct].csv"
+    # url = "https://docs.google.com/spreadsheets/d/1JDy9md2VZPz4JbYtRPJLs81_3jUK47nx6GYQjgU8qNY/edit?usp=sharing"
+    url = "https://docs.google.com/spreadsheets/d/1OQEZzqf0tl5xrRAg0QQkBwI3ylXNlrAqIG5cMmD8VyE/edit?usp=sharing"
+    conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+    file = conn.read(spreadsheet=url, usecols=[0, 1,2,3,4,5,6,7,8,9,10])
+    # st.dataframe(file)
+    # file = "./assets/MCET11.csv"
     # file = st.file_uploader("Upload The Results csv file",type='csv')
     if file is not None:
-        Df = pd.read_csv(file)
+        # Df = pd.read_csv(file)
+        Df = file
         # Count the number of "Yes" and "No" values in the "Redemption Status" column
         Ryes_count = (Df['Redemption Status'] == 'Yes').sum()
         Tyes_count = (Df['Total Completions of both Pathways'] == 'Yes').sum()
         Rno_count = (Df['Redemption Status'] == 'No').sum()
         Tno_count = (Df['Total Completions of both Pathways'] == 'No').sum()
-        print(Df.head())
+        # print(Df.head())
         # st.write(f'Number of "Yes" values: {Ryes_count}')
         # st.write(f'Number of "No" values: {Rno_count}')
         # st.dataframe(Df)
