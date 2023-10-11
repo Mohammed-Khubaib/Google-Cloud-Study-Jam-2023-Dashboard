@@ -25,7 +25,7 @@ section[data-testid='stSidebar'] {
         padding-top: 60px;
         white-space: nowrap;
     }
-
+    
     section[data-testid='stSidebar']:hover{
         min-width: 330px !important;
         background-color: #272731;
