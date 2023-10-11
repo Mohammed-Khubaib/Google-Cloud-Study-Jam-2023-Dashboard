@@ -313,4 +313,4 @@ if tabs =='Cloud Foundations':
     - ### Perform Foundational Data, ML, and AI Tasks in Google Cloud
     """)
 with c1: 
-    st_lottie(lottie_file1,speed=0.5,reverse=False,height=150,width=400)
+    st_lottie(lottie_file1,speed=0.5,reverse=False,height=145,width=400)
