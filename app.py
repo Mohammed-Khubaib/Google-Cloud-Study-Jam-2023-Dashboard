@@ -1,4 +1,5 @@
-from datetime import date
+import datetime
+import pytz
 import json
 import time
 import numpy as np 
@@ -493,7 +494,14 @@ if tabs =='Dashboard':
         st.title(":blue[G]:green[D]:orange[S]:red[C]   :blue[M]:green[C]:orange[E]:red[T] GCSJ :orange[Dashboard] : :red[2023]",anchor=False)
         # Get today's date
 
-    today = date.today()
+    desired_timezone = pytz.timezone('Asia/Kolkata')
+
+    # Get the current time in the desired timezone
+    current_time = datetime.datetime.now(desired_timezone)
+
+    # Extract the date
+    today = current_time.date()
+
 
     # Format and print today's date in a custom format (e.g., DD/MM/YYYY)
     formatted_date = today.strftime("%d/%m/%Y")
