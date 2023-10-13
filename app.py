@@ -136,6 +136,305 @@ def pieChart(tab,yes_count,no_count) :
                             }
                         }
                     )
+
+
+def pieChart4(tab,completed_status) :
+    with elements(str(tab)):
+                DATA = [
+                    {"id": "0/4", "label": "0", "value": int(completed_status[0]),"color": "hsl(21, 70%, 50%)"},
+                    {"id": "1/4", "label": "1", "value": int(completed_status[1]), "color": "hsl(0, 70%, 50%)"},
+                    {"id": "2/4", "label": "2", "value": int(completed_status[2]),"color": "hsl(21, 70%, 50%)"},
+                    {"id": "3/4", "label": "3", "value": int(completed_status[3]), "color": "hsl(0, 70%, 50%)"},
+                    {"id": "4/4", "label": "4", "value": int(completed_status[4]), "color": "hsl(0, 70%, 50%)"},
+                ]
+                with mui.Box(sx={"height": 350}):
+                    nivo.Pie(
+                        data= DATA,
+                        keys=["0","1","2","3","4"],
+                        margin={ "top": 40, "right": 80, "bottom": 80, "left": 80 },
+                        innerRadius=0.5,
+                        padAngle=0.7,
+                        cornerRadius=3,
+                        activeOuterRadiusOffset=8,
+                        borderWidth=1,
+                        borderColor = {
+                            'from' : "DATA",
+                            "modifiers": [
+                                [
+                                    "darker",
+                                    0.2
+                                ]
+                            ]
+                        },
+                        arcLinkLabelsSkipAngle=10,
+                        arcLinkLabelsTextColor="#fff",
+                        arcLinkLabelsThickness=5,
+                        arcLinkLabelsColor={ "from": 'color' },
+                        arcLabelsSkipAngle=2,
+                        arcLabelsTextColor={
+                        "from": 'color',
+                        "modifiers": [
+                            [
+                                'darker',
+                                2
+                            ]
+                        ]
+                        },
+                        defs = [
+                        {
+                            "id": "dots",
+                            "type": "patternDots",
+                            "background": "inherit",
+                            "color": "#FFFFFF4D",
+                            "size": 4,
+                            "padding": 2,
+                            "stagger": "true"
+                        },
+                        {
+                            "id": "lines",
+                            "type": "patternLines",
+                            "background": "inherit",
+                            "color": "rgba(255, 255, 255, 0.3)",
+                            "rotation": -45,
+                            "lineWidth": 6,
+                            "spacing": 10
+                        }
+                        ],
+
+                    fill = [
+                        {
+                            "match": {
+                                "id": "0"
+                            },
+                            "id": "dots"
+                        },
+                        {
+                            "match": {
+                                "id": "1"
+                            },
+                            "id": "lines"
+                        },
+                        {
+                            "match": {
+                                "id": "2"
+                            },
+                            "id": "lines"
+                        },
+                        {
+                            "match": {
+                                "id": "3"
+                            },
+                            "id": "dots"
+                        },
+                        {
+                            "match": {
+                                "id": "4"
+                            },
+                            "id": "lines"
+                        }
+                    ],
+                    legends=[
+                                {
+                                    "anchor": 'bottom',
+                                    "direction": 'row',
+                                    # "justify": "false",
+                                    "translateX": 1,
+                                    "translateY": 76,
+                                    "itemsSpacing": 10,
+                                    "itemWidth": 50,
+                                    "itemHeight": 18,
+                                    "itemTextColor": '#999',
+                                    "itemDirection": 'left-to-right',
+                                    "itemOpacity": 2,
+                                    "symbolSize": 10,
+                                    "symbolShape": 'circle',
+                                    "effects": [
+                                        {
+                                            "on": 'hover',
+                                            "style": {
+                                                "itemTextColor": '#fff'
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            theme={
+                            "background": "#111",
+                            "textColor": "#fff",
+                            "tooltip": {
+                                "container": {
+                                    "background": "#111",
+                                    "color": "#fff",
+                                }
+                            }
+                        }
+                    )
+def pieChart9(tab,completed_status) :
+    with elements(str(tab)):
+                DATA = [
+                    {"id": "0/9", "label": "0", "value": int(completed_status[0]),"color": "hsl(21, 70%, 50%)"},
+                    {"id": "1/9", "label": "1", "value": int(completed_status[1]), "color": "hsl(0, 70%, 50%)"},
+                    {"id": "2//49", "label": "2", "value": int(completed_status[2]),"color": "hsl(21, 70%, 50%)"},
+                    {"id": "3/9", "label": "3", "value": int(completed_status[3]), "color": "hsl(0, 70%, 50%)"},
+                    {"id": "4/9", "label": "4", "value": int(completed_status[4]), "color": "hsl(0, 70%, 50%)"},
+                    {"id": "5/9", "label": "5", "value": int(completed_status[5]), "color": "hsl(0, 70%, 50%)"},
+                    {"id": "6/9", "label": "6", "value": int(completed_status[6]), "color": "hsl(0, 70%, 50%)"},
+                    {"id": "7/9", "label": "7", "value": int(completed_status[7]), "color": "hsl(0, 70%, 50%)"},
+                    {"id": "8/9", "label": "8", "value": int(completed_status[8]), "color": "hsl(0, 70%, 50%)"},
+                    {"id": "9/9", "label": "9", "value": int(completed_status[9]), "color": "hsl(0, 70%, 50%)"},
+                ]
+                with mui.Box(sx={"height": 350}):
+                    nivo.Pie(
+                        data= DATA,
+                        keys=["0/9","1","2","3","4","5","6","7","8","9"],
+                        margin={ "top": 40, "right": 80, "bottom": 80, "left": 80 },
+                        innerRadius=0.5,
+                        padAngle=0.7,
+                        cornerRadius=3,
+                        activeOuterRadiusOffset=8,
+                        borderWidth=1,
+                        borderColor = {
+                            'from' : "DATA",
+                            "modifiers": [
+                                [
+                                    "darker",
+                                    0.2
+                                ]
+                            ]
+                        },
+                        arcLinkLabelsSkipAngle=10,
+                        arcLinkLabelsTextColor="#fff",
+                        arcLinkLabelsThickness=5,
+                        arcLinkLabelsColor={ "from": 'color' },
+                        arcLabelsSkipAngle=2,
+                        arcLabelsTextColor={
+                        "from": 'color',
+                        "modifiers": [
+                            [
+                                'darker',
+                                2
+                            ]
+                        ]
+                        },
+                        defs = [
+                        {
+                            "id": "dots",
+                            "type": "patternDots",
+                            "background": "inherit",
+                            "color": "#FFFFFF4D",
+                            "size": 4,
+                            "padding": 2,
+                            "stagger": "true"
+                        },
+                        {
+                            "id": "lines",
+                            "type": "patternLines",
+                            "background": "inherit",
+                            "color": "rgba(255, 255, 255, 0.3)",
+                            "rotation": -45,
+                            "lineWidth": 6,
+                            "spacing": 10
+                        }
+                        ],
+
+                    fill = [
+                        {
+                            "match": {
+                                "id": "0"
+                            },
+                            "id": "dots"
+                        },
+                        {
+                            "match": {
+                                "id": "1"
+                            },
+                            "id": "lines"
+                        },
+                        {
+                            "match": {
+                                "id": "2"
+                            },
+                            "id": "lines"
+                        },
+                        {
+                            "match": {
+                                "id": "3"
+                            },
+                            "id": "dots"
+                        },
+                        {
+                            "match": {
+                                "id": "4"
+                            },
+                            "id": "lines"
+                        },
+                        {
+                            "match": {
+                                "id": "5"
+                            },
+                            "id": "dots"
+                        },
+                        {
+                            "match": {
+                                "id": "6"
+                            },
+                            "id": "lines"
+                        },
+                        {
+                            "match": {
+                                "id": "7"
+                            },
+                            "id": "dots"
+                        },
+                        {
+                            "match": {
+                                "id": "8"
+                            },
+                            "id": "lines"
+                        },
+                        {
+                            "match": {
+                                "id": "7"
+                            },
+                            "id": "dots"
+                        }
+                    ],
+                    legends=[
+                                {
+                                    "anchor": 'bottom',
+                                    "direction": 'row',
+                                    # "justify": "false",
+                                    "translateX": 1,
+                                    "translateY": 76,
+                                    "itemsSpacing": 10,
+                                    "itemWidth": 40,
+                                    "itemHeight": 18,
+                                    "itemTextColor": '#999',
+                                    "itemDirection": 'left-to-right',
+                                    "itemOpacity": 2,
+                                    "symbolSize": 10,
+                                    "symbolShape": 'circle',
+                                    "effects": [
+                                        {
+                                            "on": 'hover',
+                                            "style": {
+                                                "itemTextColor": '#fff'
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            theme={
+                            "background": "#111",
+                            "textColor": "#fff",
+                            "tooltip": {
+                                "container": {
+                                    "background": "#111",
+                                    "color": "#fff",
+                                }
+                            }
+                        }
+                    )
 # Hide the "Made with Streamlit" footer
 # Define a CSS style for the text
 hide_streamlit_style="""
@@ -215,6 +514,24 @@ if tabs =='Dashboard':
         Tyes_count = (Df['Total Completions of both Pathways'] == 'Yes').sum()
         Rno_count = (Df['Redemption Status'] == 'No').sum()
         Tno_count = (Df['Total Completions of both Pathways'] == 'No').sum()
+        # Calculate the frequency of values in '# of Courses Completed'
+        courses_completed_frequency = Df['# of Courses Completed'].value_counts()
+
+        # Calculate the frequency of values in '# of Skill Badges Completed'
+        skill_badges_completed_frequency = Df['# of Skill Badges Completed'].value_counts()
+        for i in range(0,5):
+            if i not in skill_badges_completed_frequency:
+                skill_badges_completed_frequency[i] = 0
+        # st.dataframe(skill_badges_completed_frequency)
+        # st.error(len(skill_badges_completed_frequency))
+        # st.error(skill_badges_completed_frequency[4])
+
+        # Calculate the frequency of values in '# of GenAI Game Completed'
+        genai_game_completed_frequency = Df['# of GenAI Game Completed'].value_counts()
+        for i in range(0,10):
+            if i not in genai_game_completed_frequency:
+                genai_game_completed_frequency[i] = 0
+        # st.error(genai_game_completed_frequency)
         # print(Df.head())
         # st.write(f'Number of "Yes" values: {Ryes_count}')
         # st.write(f'Number of "No" values: {Rno_count}')
@@ -230,7 +547,7 @@ if tabs =='Dashboard':
     listTabs = [
     '$$\color{skyblue}\\text{Leader Board}$$',
     '$$\color{LimeGreen}\\text{Redemption}$$',
-    '$$\color{orange}\\text{Total Completions of both Pathways}$$',
+    '$$\color{orange}\\text{Progress Tracker}$$',
     '$$\color{red}\\text{Participant Progress}$$'
     ]
     whitespace = 5
@@ -247,13 +564,41 @@ if tabs =='Dashboard':
             pieChart("Redemption Status",Ryes_count,Rno_count)
         st.divider()
     with tab[2]:
-        st.markdown(
-           f'<h3 style="font-family: your-font-family; color:orange">Total Completions of both Pathways</h3>',
-            unsafe_allow_html=True
-        )
-        if file is not None:
-            pieChart("Total Completions of both Pathways",Tyes_count,Tno_count)
-        st.divider()
+        c9,c10 = st.columns([0.5,0.5])
+        c11,c12 = st.columns([0.5,0.5])
+        with c9:
+            st.markdown(
+            f'<h3 style="font-family: your-font-family; color:orange">Course Badges Obtained /4 </h3>',
+                unsafe_allow_html=True
+            )
+            pieChart4("Courses Completed",courses_completed_frequency)
+            st.divider()
+        with c10:
+            st.markdown(
+            f'<h3 style="font-family: your-font-family; color:orange">Skill Badges Obtained /4</h3>',
+                unsafe_allow_html=True
+            )
+            pieChart4("Skill Badges Obtained",skill_badges_completed_frequency)
+            # pieChart3("Skill Badges Obtained",genai_game_completed_frequency)
+
+            st.divider()
+        with c11:
+            st.markdown(
+            f'<h3 style="font-family: your-font-family; color:orange">GenAI Game Progress /9</h3>',
+                unsafe_allow_html=True
+            )
+            pieChart9("GenAI Game Progress",genai_game_completed_frequency)
+
+            st.divider()
+
+        with c12 :
+            st.markdown(
+            f'<h3 style="font-family: your-font-family; color:orange">Total Completions of both Pathways</h3>',
+                unsafe_allow_html=True
+            )
+            if file is not None:
+                pieChart("Total Completions of both Pathways",Tyes_count,Tno_count)
+            st.divider()
 
     #---------------------
     with tab[0]:
@@ -329,3 +674,16 @@ if tabs =='Cloud Foundations':
     """)
 with c1: 
     st_lottie(lottie_file1,speed=0.5,reverse=False,height=150,width=300)
+
+# Filter the DataFrame to get students with 'Redemption Status' equal to 'No'
+# filtered_df = Df[Df['Redemption Status'] == 'No']
+
+# Extract the 'Student Name' and 'Student Email' columns from the filtered DataFrame
+# result = filtered_df[['Student Name', 'Student Email']]
+
+# st.dataframe(result,use_container_width=True)
+# st.warning(result.shape)
+# st.warning(Df['Institution'].unique())
+
+
+
