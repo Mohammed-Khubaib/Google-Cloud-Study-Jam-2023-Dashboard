@@ -204,31 +204,31 @@ def pieChart4(tab,completed_status) :
                     fill = [
                         {
                             "match": {
-                                "id": "0"
+                                "id": "0/4"
                             },
                             "id": "dots"
                         },
                         {
                             "match": {
-                                "id": "1"
+                                "id": "1/4"
                             },
                             "id": "lines"
                         },
                         {
                             "match": {
-                                "id": "2"
+                                "id": "2/4"
                             },
                             "id": "lines"
                         },
                         {
                             "match": {
-                                "id": "3"
+                                "id": "3/4"
                             },
                             "id": "dots"
                         },
                         {
                             "match": {
-                                "id": "4"
+                                "id": "4/4"
                             },
                             "id": "lines"
                         }
@@ -340,61 +340,61 @@ def pieChart9(tab,completed_status) :
                     fill = [
                         {
                             "match": {
-                                "id": "0"
+                                "id": "0/9"
                             },
                             "id": "dots"
                         },
                         {
                             "match": {
-                                "id": "1"
+                                "id": "1/9"
                             },
                             "id": "lines"
                         },
                         {
                             "match": {
-                                "id": "2"
+                                "id": "2/9"
                             },
                             "id": "lines"
                         },
                         {
                             "match": {
-                                "id": "3"
+                                "id": "3/9"
                             },
                             "id": "dots"
                         },
                         {
                             "match": {
-                                "id": "4"
+                                "id": "4/9"
                             },
                             "id": "lines"
                         },
                         {
                             "match": {
-                                "id": "5"
+                                "id": "5/9"
                             },
                             "id": "dots"
                         },
                         {
                             "match": {
-                                "id": "6"
+                                "id": "6/9"
                             },
                             "id": "lines"
                         },
                         {
                             "match": {
-                                "id": "7"
+                                "id": "7/9"
                             },
                             "id": "dots"
                         },
                         {
                             "match": {
-                                "id": "8"
+                                "id": "8/9"
                             },
                             "id": "lines"
                         },
                         {
                             "match": {
-                                "id": "7"
+                                "id": "9/9"
                             },
                             "id": "dots"
                         }
