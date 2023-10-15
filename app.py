@@ -275,14 +275,14 @@ def pieChart9(tab,completed_status) :
                 DATA = [
                     {"id": "0/9", "label": "0", "value": int(completed_status[0]),"color": "hsl(21, 70%, 50%)"},
                     {"id": "1/9", "label": "1", "value": int(completed_status[1]), "color": "hsl(0, 70%, 50%)"},
-                    {"id": "2//49", "label": "2", "value": int(completed_status[2]),"color": "hsl(21, 70%, 50%)"},
-                    {"id": "3/9", "label": "3", "value": int(completed_status[3]), "color": "hsl(0, 70%, 50%)"},
-                    {"id": "4/9", "label": "4", "value": int(completed_status[4]), "color": "hsl(0, 70%, 50%)"},
-                    {"id": "5/9", "label": "5", "value": int(completed_status[5]), "color": "hsl(0, 70%, 50%)"},
-                    {"id": "6/9", "label": "6", "value": int(completed_status[6]), "color": "hsl(0, 70%, 50%)"},
-                    {"id": "7/9", "label": "7", "value": int(completed_status[7]), "color": "hsl(0, 70%, 50%)"},
-                    {"id": "8/9", "label": "8", "value": int(completed_status[8]), "color": "hsl(0, 70%, 50%)"},
-                    {"id": "9/9", "label": "9", "value": int(completed_status[9]), "color": "hsl(0, 70%, 50%)"},
+                    # {"id": "2//49", "label": "2", "value": int(completed_status[2]),"color": "hsl(21, 70%, 50%)"},
+                    # {"id": "3/9", "label": "3", "value": int(completed_status[3]), "color": "hsl(0, 70%, 50%)"},
+                    # {"id": "4/9", "label": "4", "value": int(completed_status[4]), "color": "hsl(0, 70%, 50%)"},
+                    # {"id": "5/9", "label": "5", "value": int(completed_status[5]), "color": "hsl(0, 70%, 50%)"},
+                    # {"id": "6/9", "label": "6", "value": int(completed_status[6]), "color": "hsl(0, 70%, 50%)"},
+                    # {"id": "7/9", "label": "7", "value": int(completed_status[7]), "color": "hsl(0, 70%, 50%)"},
+                    # {"id": "8/9", "label": "8", "value": int(completed_status[8]), "color": "hsl(0, 70%, 50%)"},
+                    # {"id": "9/9", "label": "9", "value": int(completed_status[9]), "color": "hsl(0, 70%, 50%)"},
                 ]
                 with mui.Box(sx={"height": 350}):
                     nivo.Pie(
@@ -517,14 +517,15 @@ if tabs =='Dashboard':
     if file is not None:
         # Df = pd.read_csv(file)
         Df = file
+        
         # Count the number of "Yes" and "No" values in the "Redemption Status" column
         Ryes_count = (Df['Redemption Status'] == 'Yes').sum()
         Tyes_count = (Df['Total Completions of both Pathways'] == 'Yes').sum()
         Rno_count = (Df['Redemption Status'] == 'No').sum()
         Tno_count = (Df['Total Completions of both Pathways'] == 'No').sum()
+        Df = Df[Df['Redemption Status'] != 'No']
         # Calculate the frequency of values in '# of Courses Completed'
         courses_completed_frequency = Df['# of Courses Completed'].value_counts()
-
         # Calculate the frequency of values in '# of Skill Badges Completed'
         skill_badges_completed_frequency = Df['# of Skill Badges Completed'].value_counts()
         for i in range(0,5):
@@ -554,16 +555,16 @@ if tabs =='Dashboard':
     st.divider()
     listTabs = [
     '$$\color{skyblue}\\text{Leader Board}$$',
-    '$$\color{LimeGreen}\\text{Redemption}$$',
     '$$\color{orange}\\text{Progress Tracker}$$',
-    '$$\color{red}\\text{Participant Progress}$$'
+    '$$\color{red}\\text{Participant Progress}$$',
+    '$$\color{LimeGreen}\\text{Redemption}$$',
     ]
     whitespace = 5
     # tab1,tab2,tab3,tab4 = st.tabs(['$$\color{skyblue}\\text{Leader Board}$$','$$\color{LimeGreen}\\text{Redemption}$$','$$\color{orange}\\text{Total Completions of both Pathways}$$','$$\color{red}\\text{Participant Progress}$$'])
     tab_labels = [s.center(len(s) + whitespace, "\u2001") for s in listTabs]
     tab = st.tabs(tab_labels)
     #----
-    with tab[1]:
+    with tab[3]:
         st.markdown(
         f'<h1 style="font-family: your-font-family; color: limegreen;">Redemption Status</h1>',
         unsafe_allow_html=True
@@ -571,7 +572,8 @@ if tabs =='Dashboard':
         if file is not None:
             pieChart("Redemption Status",Ryes_count,Rno_count)
         st.divider()
-    with tab[2]:
+    with tab[1]:
+
         c9,c10 = st.columns([0.5,0.5])
         c11,c12 = st.columns([0.5,0.5])
         with c9:
@@ -592,7 +594,7 @@ if tabs =='Dashboard':
             st.divider()
         with c11:
             st.markdown(
-            f'<h3 style="font-family: your-font-family; color:orange">GenAI Game Progress /9</h3>',
+            f'<h3 style="font-family: your-font-family; color:orange">GenAI Game Progress</h3>',
                 unsafe_allow_html=True
             )
             pieChart9("GenAI Game Progress",genai_game_completed_frequency)
@@ -636,7 +638,7 @@ if tabs =='Dashboard':
             st.dataframe(Ndf[["Student Name","# of Courses Completed","# of GenAI Game Completed","# of Skill Badges Completed"]].head(10),use_container_width=True)
             st.divider()
     #-------------------
-    with tab[3]:
+    with tab[2]:
         st.markdown(
         f'<h3 style="font-family: your-font-family; color: OrangeRed;">If you are a participant then enter Your Name To know your progress :</h3>',
         unsafe_allow_html=True
