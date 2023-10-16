@@ -4,6 +4,8 @@ import numpy as np
 from streamlit_elements import elements, mui, html
 from streamlit_elements import nivo
 import nivo_chart as nc
+import random
+import time
 #trying Line
 #trying Line
 with elements("nivo_line"):
@@ -174,6 +176,8 @@ with elements("nivo_line"):
             }
 
             )
+        
+
 
 DATA =[
         {"value": 1,"day": "2023-10-10"},
@@ -208,13 +212,13 @@ calendar_chart = {
     "layout": {
         "title": "Calendar 2023",
         "type": "calendar",
-        "height": 500,
-        "width": 1200,
+        "height": 300,
+        "width": 900,
         "from": "2023-10-10",
         "to": "2023-10-30",
         "emptyColor": "gray",
         "colors": ["#61cdbb", "#97e3d5", "#e8c1a0", "#f47560"],
-        "margin": {"top": 40, "right": 40, "bottom": 40, "left": 40},
+        "margin": {"top": 10, "right": 200, "bottom": 0, "left": 30},
 
         "yearSpacing": 40,
         "monthBorderColor": "#111",
@@ -245,3 +249,125 @@ calendar_chart = {
     }
 }
 nc.nivo_chart(data=calendar_chart["data"], layout=calendar_chart["layout"], key="calendar_chart")
+
+
+
+DATA = [
+        {"value": 1,"day": "2023-10-10"},
+        {"value": 2,"day": "2023-10-11"},
+        {"value": 3,"day": "2023-10-12"},
+        {"value": 4,"day": "2023-10-13"},
+        {"value": 5,"day": "2023-10-14"},
+        {"value": 1,"day": "2023-10-15"},
+        {"value": 2,"day": "2023-10-16"},
+        {"value": 3,"day": "2023-10-17"},
+        {"value": 4,"day": "2023-10-18"},
+        {"value": 5,"day": "2023-10-19"},
+        {"value": 1,"day": "2023-10-20"},
+        {"value": 2,"day": "2023-10-21"},
+        {"value": 3,"day": "2023-10-22"},
+        {"value": 4,"day": "2023-10-23"},
+        {"value": 5,"day": "2023-10-24"},
+        {"value": 1,"day": "2023-10-24"},
+        {"value": 2,"day": "2023-10-26"},
+        {"value": 3,"day": "2023-10-27"},
+        {"value": 4,"day": "2023-10-28"},
+        {"value": 5,"day": "2023-10-29"},
+        {"value": 1,"day": "2023-10-30"},
+        {"value": 2,"day": "2023-10-31"},
+]
+
+TimeRange = {
+    "data" : DATA ,
+    "layout": {
+        "title": "October 2023",
+        "type": "calendar",
+        # "height": 600,
+        # "width": 700,
+        "from": "2023-10-10",
+        "to": "2023-10-30",
+        "emptyColor": "gray",
+        # "emptyColor":"#eeeeee",
+        "colors": ["#61cdbb", "#97e3d5", "#e8c1a0", "#f47560"],
+        # "margin": {"top": 10, "right": 200, "bottom": 0, "left": 30},
+        "margin": {"top": 40, "right": 200, "bottom": 100, "left": 40},
+        "monthLegendPosition":"before",
+        "weekdayLegendOffset":75,
+        "weekdayTicks":[1, 3, 5],
+        "firstWeekday":'monday',
+        "dayBorderWidth":2,
+        "dayBorderColor":"#111",
+        "legends": [
+            {
+                "anchor": "bottom-right",
+                "direction": "row",
+                "translateY": 36,
+                "itemCount": 4,
+                "itemWidth": 42,
+                "itemHeight": 36,
+                "itemsSpacing": 14,
+                "itemDirection": "right-to-left",
+                "translateX": -60,
+                "translateY": -60,
+                "symbolSize": 20
+            }
+        ],
+        "theme":{
+            "background": "#111",
+            "textColor": "#fff",
+            "tooltip": {
+                "container": {
+                    "background": "#111",
+                    "color": "#fff",
+                }
+            }
+        }
+    }
+}
+nc.nivo_chart(data=TimeRange["data"], layout=TimeRange["layout"], key="TimeRange")
+
+def Theam(val):
+    if val>1 and val<=20:
+        st.write("""
+        <style>
+            /* The progress bars */
+            .stProgress > div > div > div > div {
+                background: linear-gradient(to right, red, orange);
+                border-radius: 10px;
+            }
+
+            /* The text inside the progress bars */
+            .stProgress > div > div > div > div > div {
+                color: white;
+            }
+        </style>
+        # """, unsafe_allow_html=True)
+    elif val>20 and val<=30:
+        st.write("""
+        <style>
+            /* The progress bars */
+            .stProgress > div > div > div > div {
+                background: linear-gradient(to right, orangered,yellow );
+                border-radius: 10px;
+            }
+        </style>
+        # """, unsafe_allow_html=True)
+    elif val>20 and val<=40:
+        st.write("""
+        <style>
+            /* The progress bars */
+            .stProgress > div > div > div > div {
+                background: linear-gradient(to right, lightgreen, green);
+            }
+        </style>
+        # """, unsafe_allow_html=True)
+
+# i=st.number_input("Enter the value of i",min_value=0,max_value=100,step=5,value=100)
+progress_text = "Operation in progress. Please wait."
+my_bar = st.progress(0, text=progress_text)
+
+for percent_complete in range(40):
+    time.sleep(0.05)
+    Theam(int(percent_complete))
+    my_bar.progress(percent_complete + 1, text=progress_text)
+time.sleep(1)

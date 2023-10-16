@@ -520,10 +520,10 @@ if tabs =='Dashboard':
         
         # Count the number of "Yes" and "No" values in the "Redemption Status" column
         Ryes_count = (Df['Redemption Status'] == 'Yes').sum()
-        Tyes_count = (Df['Total Completions of both Pathways'] == 'Yes').sum()
         Rno_count = (Df['Redemption Status'] == 'No').sum()
-        Tno_count = (Df['Total Completions of both Pathways'] == 'No').sum()
         Df = Df[Df['Redemption Status'] != 'No']
+        Tyes_count = (Df['Total Completions of both Pathways'] == 'Yes').sum()
+        Tno_count = (Df['Total Completions of both Pathways'] == 'No').sum()
         # Calculate the frequency of values in '# of Courses Completed'
         courses_completed_frequency = Df['# of Courses Completed'].value_counts()
         # Calculate the frequency of values in '# of Skill Badges Completed'
