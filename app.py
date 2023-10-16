@@ -127,7 +127,7 @@ def pieChart(tab,yes_count,no_count) :
                                 }
                             ],
                             theme={
-                            "background": "#111",
+                            "background": "#0e1016",
                             "textColor": "#fff",
                             "tooltip": {
                                 "container": {
@@ -260,7 +260,7 @@ def pieChart4(tab,completed_status) :
                                 }
                             ],
                             theme={
-                            "background": "#111",
+                            "background": "#0e1016",
                             "textColor": "#fff",
                             "tooltip": {
                                 "container": {
@@ -273,8 +273,8 @@ def pieChart4(tab,completed_status) :
 def pieChart9(tab,completed_status) :
     with elements(str(tab)):
                 DATA = [
-                    {"id": "0/9", "label": "0", "value": int(completed_status[0]),"color": "hsl(21, 70%, 50%)"},
-                    {"id": "1/9", "label": "1", "value": int(completed_status[1]), "color": "hsl(0, 70%, 50%)"},
+                    {"id": "0", "label": "0", "value": int(completed_status[0]),"color": "hsl(21, 70%, 50%)"},
+                    {"id": "1", "label": "1", "value": int(completed_status[1]), "color": "hsl(0, 70%, 50%)"},
                     # {"id": "2//49", "label": "2", "value": int(completed_status[2]),"color": "hsl(21, 70%, 50%)"},
                     # {"id": "3/9", "label": "3", "value": int(completed_status[3]), "color": "hsl(0, 70%, 50%)"},
                     # {"id": "4/9", "label": "4", "value": int(completed_status[4]), "color": "hsl(0, 70%, 50%)"},
@@ -287,7 +287,7 @@ def pieChart9(tab,completed_status) :
                 with mui.Box(sx={"height": 350}):
                     nivo.Pie(
                         data= DATA,
-                        keys=["0/9","1","2","3","4","5","6","7","8","9"],
+                        keys=["0","1","2","3","4","5","6","7","8","9"],
                         margin={ "top": 40, "right": 80, "bottom": 80, "left": 80 },
                         innerRadius=0.5,
                         padAngle=0.7,
@@ -341,63 +341,15 @@ def pieChart9(tab,completed_status) :
                     fill = [
                         {
                             "match": {
-                                "id": "0/9"
+                                "id": "0"
                             },
                             "id": "dots"
                         },
                         {
                             "match": {
-                                "id": "1/9"
+                                "id": "1"
                             },
                             "id": "lines"
-                        },
-                        {
-                            "match": {
-                                "id": "2/9"
-                            },
-                            "id": "lines"
-                        },
-                        {
-                            "match": {
-                                "id": "3/9"
-                            },
-                            "id": "dots"
-                        },
-                        {
-                            "match": {
-                                "id": "4/9"
-                            },
-                            "id": "lines"
-                        },
-                        {
-                            "match": {
-                                "id": "5/9"
-                            },
-                            "id": "dots"
-                        },
-                        {
-                            "match": {
-                                "id": "6/9"
-                            },
-                            "id": "lines"
-                        },
-                        {
-                            "match": {
-                                "id": "7/9"
-                            },
-                            "id": "dots"
-                        },
-                        {
-                            "match": {
-                                "id": "8/9"
-                            },
-                            "id": "lines"
-                        },
-                        {
-                            "match": {
-                                "id": "9/9"
-                            },
-                            "id": "dots"
                         }
                     ],
                     legends=[
@@ -426,7 +378,7 @@ def pieChart9(tab,completed_status) :
                                 }
                             ],
                             theme={
-                            "background": "#111",
+                            "background": "#0e1016",
                             "textColor": "#fff",
                             "tooltip": {
                                 "container": {
@@ -635,7 +587,7 @@ if tabs =='Dashboard':
             # Apply the condition to filter rows
             Ndf = Ndf.loc[condition]
             Ndf.index = Ndf['Rank'].values
-            st.dataframe(Ndf[["Student Name","# of Courses Completed","# of GenAI Game Completed","# of Skill Badges Completed"]].head(10),use_container_width=True)
+            st.dataframe(Ndf[["Student Name","# of Courses Completed","# of Skill Badges Completed","# of GenAI Game Completed"]].head(10),use_container_width=True)
             st.divider()
     #-------------------
     with tab[2]:
