@@ -33,7 +33,7 @@ def pieChart(tab,yes_count,no_count) :
                     {"id": "Yes", "label": "Yes", "value": int(yes_count),"color": "hsl(21, 70%, 50%)"},
                     {"id": "No", "label": "No", "value": int(no_count), "color": "hsl(0, 70%, 50%)"}
                 ]
-                with mui.Box(sx={"height": 350}):
+                with mui.Box(sx={"height": 400}):
                     nivo.Pie(
                         data= DATA,
                         keys=["Yes","No"],
@@ -44,13 +44,8 @@ def pieChart(tab,yes_count,no_count) :
                         activeOuterRadiusOffset=8,
                         borderWidth=1,
                         borderColor = {
-                            'from' : "DATA",
-                            "modifiers": [
-                                [
-                                    "darker",
-                                    0.2
-                                ]
-                            ]
+                            'from' : DATA,
+                            'modifiers': 'darker'
                         },
                         arcLinkLabelsSkipAngle=10,
                         arcLinkLabelsTextColor="#fff",
@@ -62,7 +57,7 @@ def pieChart(tab,yes_count,no_count) :
                         "modifiers": [
                             [
                                 'darker',
-                                2
+                                10
                             ]
                         ]
                         },
@@ -114,7 +109,7 @@ def pieChart(tab,yes_count,no_count) :
                                     "itemTextColor": '#999',
                                     "itemDirection": 'left-to-right',
                                     "itemOpacity": 2,
-                                    "symbolSize": 10,
+                                    "symbolSize": 14,
                                     "symbolShape": 'circle',
                                     "effects": [
                                         {
@@ -148,7 +143,7 @@ def pieChart4(tab,completed_status) :
                     {"id": "3/4", "label": "3", "value": int(completed_status[3]), "color": "hsl(0, 70%, 50%)"},
                     {"id": "4/4", "label": "4", "value": int(completed_status[4]), "color": "hsl(0, 70%, 50%)"},
                 ]
-                with mui.Box(sx={"height": 350}):
+                with mui.Box(sx={"height": 400}):
                     nivo.Pie(
                         data= DATA,
                         keys=["0","1","2","3","4"],
@@ -159,13 +154,8 @@ def pieChart4(tab,completed_status) :
                         activeOuterRadiusOffset=8,
                         borderWidth=1,
                         borderColor = {
-                            'from' : "DATA",
-                            "modifiers": [
-                                [
-                                    "darker",
-                                    0.2
-                                ]
-                            ]
+                            'from' : DATA,
+                            "modifiers": 'brighter'
                         },
                         arcLinkLabelsSkipAngle=10,
                         arcLinkLabelsTextColor="#fff",
@@ -177,7 +167,7 @@ def pieChart4(tab,completed_status) :
                         "modifiers": [
                             [
                                 'darker',
-                                2
+                                1000
                             ]
                         ]
                         },
@@ -247,7 +237,7 @@ def pieChart4(tab,completed_status) :
                                     "itemTextColor": '#999',
                                     "itemDirection": 'left-to-right',
                                     "itemOpacity": 2,
-                                    "symbolSize": 10,
+                                    "symbolSize": 14,
                                     "symbolShape": 'circle',
                                     "effects": [
                                         {
@@ -284,7 +274,7 @@ def pieChart9(tab,completed_status) :
                     # {"id": "8/9", "label": "8", "value": int(completed_status[8]), "color": "hsl(0, 70%, 50%)"},
                     # {"id": "9/9", "label": "9", "value": int(completed_status[9]), "color": "hsl(0, 70%, 50%)"},
                 ]
-                with mui.Box(sx={"height": 350}):
+                with mui.Box(sx={"height": 400}):
                     nivo.Pie(
                         data= DATA,
                         keys=["0","1","2","3","4","5","6","7","8","9"],
@@ -293,7 +283,7 @@ def pieChart9(tab,completed_status) :
                         padAngle=0.7,
                         cornerRadius=3,
                         activeOuterRadiusOffset=8,
-                        borderWidth=1,
+                        borderWidth=2,
                         borderColor = {
                             'from' : "DATA",
                             "modifiers": [
@@ -313,7 +303,7 @@ def pieChart9(tab,completed_status) :
                         "modifiers": [
                             [
                                 'darker',
-                                2
+                                1000
                             ]
                         ]
                         },
@@ -323,7 +313,7 @@ def pieChart9(tab,completed_status) :
                             "type": "patternDots",
                             "background": "inherit",
                             "color": "#FFFFFF4D",
-                            "size": 4,
+                            "size": 5,
                             "padding": 2,
                             "stagger": "true"
                         },
@@ -365,7 +355,7 @@ def pieChart9(tab,completed_status) :
                                     "itemTextColor": '#999',
                                     "itemDirection": 'left-to-right',
                                     "itemOpacity": 2,
-                                    "symbolSize": 10,
+                                    "symbolSize": 14,
                                     "symbolShape": 'circle',
                                     "effects": [
                                         {
