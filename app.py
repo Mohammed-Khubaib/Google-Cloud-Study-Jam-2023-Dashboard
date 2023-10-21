@@ -10,6 +10,7 @@ from st_on_hover_tabs import on_hover_tabs
 from streamlit_elements import nivo
 from streamlit_elements import elements, mui
 from streamlit_gsheets import GSheetsConnection
+import math
 
 st.set_page_config('GDSC MCET',page_icon="./assets/logo.png",layout="wide")
 st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
@@ -394,6 +395,10 @@ hide_streamlit_style="""
         color: red;
         # color: #12FFE2;
     }
+    h4 {
+        color: coral;
+        # color: #12FFE2;
+    }
     /* The progress bars */
         .stProgress > div > div > div > div {
             background: linear-gradient(to right, #00EEFF, #01FFB3);
@@ -579,6 +584,12 @@ if tabs =='Dashboard':
             Ndf.index = Ndf['Rank'].values
             st.dataframe(Ndf[["Student Name","# of Courses Completed","# of Skill Badges Completed","# of GenAI Game Completed"]].head(10),use_container_width=True)
             st.divider()
+            st.markdown("#### Tire 1")
+            st.progress(Tyes_count/80,f"Total completion {math.trunc((Tyes_count/80)*100)} %")
+            st.markdown("#### Tire 2")
+            st.progress(Tyes_count/60,f"Total completion {math.trunc((Tyes_count/60)*100)} %")
+            st.markdown("#### Tire 3")
+            st.progress(Tyes_count/40,f"Total completion {math.trunc((Tyes_count/40)*100)} %")
     #-------------------
     with tab[2]:
         st.markdown(
@@ -636,6 +647,3 @@ with c1:
 # st.dataframe(result,use_container_width=True)
 # st.warning(result.shape)
 # st.warning(Df['Institution'].unique())
-
-
-
