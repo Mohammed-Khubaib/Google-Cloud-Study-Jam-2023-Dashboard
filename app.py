@@ -221,9 +221,10 @@ if tabs =='Dashboard':
                 st.markdown("#### Tier 3")
                 st.progress(100,f"Total completion {math.trunc((40/40)*100)} %")
             st.divider()
-            stringg = r'''\huge \color{green} \text{ Study Jam Progress } : \color{orange} 4^{th} \color{green} - \color{orange} '''+f'''{day}^'''+r'''{th}'''
+            stringg = r'''\huge \color{skyblue} \text{ Participants who completed the campaign } : \color{darkorange} 4^{th} \color{skyblue} - \color{darkorange} '''+f'''{day}^'''+r'''{th} \color{skyblue}\text{ Oct}'''
             st.latex(stringg)
-            st.latex(r'''\large \color{skyblue}\text{Number of Paticipants who completed the campaign}''')
+            completion_text = r'''\large \color{limegreen}\text{Total Completions Count: }\color{goldenrod}'''+f'''{Tyes_count}'''
+            st.latex(completion_text)
             LineChart()
     #-------------------
     with tab[2]:
