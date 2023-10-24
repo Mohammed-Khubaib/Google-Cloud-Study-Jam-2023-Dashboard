@@ -201,22 +201,22 @@ if tabs =='Dashboard':
             st.dataframe(Ndf[['Rank',"Student Name","# of Courses Completed","# of Skill Badges Completed","# of GenAI Game Completed"]],use_container_width=True)
             st.divider()
             if(Tyes_count<=80) :
-                st.markdown("#### Tire 1")
+                st.markdown("#### Tier 1")
                 st.progress(Tyes_count/80,f"Total completion {math.trunc((Tyes_count/80)*100)} %")
             else :
-                st.markdown("#### Tire 1")
+                st.markdown("#### Tier 1")
                 st.progress(100,f"Total completion {math.trunc((80/80)*100)} %")
             if(Tyes_count<=60):
-                st.markdown("#### Tire 2")
+                st.markdown("#### Tier 2")
                 st.progress(Tyes_count/60,f"Total completion {math.trunc((Tyes_count/60)*100)} %")
             else :
-                st.markdown("#### Tire 2")
+                st.markdown("#### Tier 2")
                 st.progress(100,f"Total completion {math.trunc((60/60)*100)} %")
             if(Tyes_count<=40):
-                st.markdown("#### Tire 3")
+                st.markdown("#### Tier 3")
                 st.progress(Tyes_count/40,f"Total completion {math.trunc((Tyes_count/40)*100)} %")
             else :
-                st.markdown("#### Tire 3")
+                st.markdown("#### Tier 3")
                 st.progress(100,f"Total completion {math.trunc((40/40)*100)} %")
     #-------------------
     with tab[2]:
