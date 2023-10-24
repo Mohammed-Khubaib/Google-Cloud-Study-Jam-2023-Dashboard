@@ -97,7 +97,7 @@ if tabs =='Dashboard':
         with c8:
             st.header(formatted_date)
             # today = datetime.date.today()
-            st.title(f"! :orange[{30-day}] :red[Days Left] !")
+            st.title(f"! :orange[{31-day}] :red[Days Left] !")
     file = File()
     if file is not None:
         # Df = pd.read_csv(file)
@@ -203,22 +203,22 @@ if tabs =='Dashboard':
             st.dataframe(Ndf[['Rank',"Student Name","# of Courses Completed","# of Skill Badges Completed","# of GenAI Game Completed"]],use_container_width=True)
             st.divider()
             if(Tyes_count<=80) :
-                st.markdown("#### Tier 1")
+                st.markdown(f"#### Tier 1 🥇:  :orange[{Tyes_count}/80 participants]")
                 st.progress(Tyes_count/80,f"Total completion {math.trunc((Tyes_count/80)*100)} %")
             else :
-                st.markdown("#### Tier 1")
+                st.markdown("#### Tier 1 🥇:  :orange[80/80 participants]")
                 st.progress(100,f"Total completion {math.trunc((80/80)*100)} %")
             if(Tyes_count<=60):
-                st.markdown("#### Tier 2")
+                st.markdown(f"#### Tier 2 🥈:  :red[{Tyes_count}/60 participants]")
                 st.progress(Tyes_count/60,f"Total completion {math.trunc((Tyes_count/60)*100)} %")
             else :
-                st.markdown("#### Tier 2")
+                st.markdown("#### Tier 2 🥈:  :red[60/60 participants]")
                 st.progress(100,f"Total completion {math.trunc((60/60)*100)} %")
             if(Tyes_count<=40):
-                st.markdown("#### Tier 3")
+                st.markdown(f"#### Tier 3 🥉:  :blue[{Tyes_count}/40 participants]")
                 st.progress(Tyes_count/40,f"Total completion {math.trunc((Tyes_count/40)*100)} %")
             else :
-                st.markdown("#### Tier 3")
+                st.markdown("#### Tier 3 🥉:  :blue[4/40 participants]")
                 st.progress(100,f"Total completion {math.trunc((40/40)*100)} %")
             st.divider()
             stringg = r'''\huge \color{skyblue} \text{ Participants who completed the campaign } : \color{darkorange} 4^{th} \color{skyblue} - \color{darkorange} '''+f'''{day}^'''+r'''{th} \color{skyblue}\text{ Oct}'''
