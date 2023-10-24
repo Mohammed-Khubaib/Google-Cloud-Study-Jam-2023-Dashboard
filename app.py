@@ -9,6 +9,7 @@ from st_on_hover_tabs import on_hover_tabs
 import math
 from pieChart import pieChart , pieChart4,pieChart9
 from SheetsConnection import File
+from lineChart import LineChart
 from SubHeadingText import subheadingtext
 st.set_page_config('GDSC MCET',page_icon="./assets/logo.png",layout="wide")
 st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
@@ -187,7 +188,8 @@ if tabs =='Dashboard':
             if file is not None:
                 pieChart("Total Completions of both Pathways",Tyes_count,Tno_count)
             st.divider()
-
+        st.divider()
+        LineChart()
     #---------------------
     with tab[0]:
         st.markdown(

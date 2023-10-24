@@ -9,6 +9,8 @@ import random
 import time
 #trying Line
 #trying Line
+# Set the page configuration for full width
+st.set_page_config(layout="wide")
 with elements("nivo_line"):
     DATA = [
         {
@@ -364,11 +366,267 @@ def Theam(val):
         # """, unsafe_allow_html=True)
 
 # i=st.number_input("Enter the value of i",min_value=0,max_value=100,step=5,value=100)
-progress_text = "Operation in progress. Please wait."
-my_bar = st.progress(0, text=progress_text)
 
-for percent_complete in range(40):
-    time.sleep(0.05)
-    Theam(int(percent_complete))
-    my_bar.progress(percent_complete + 1, text=progress_text)
-time.sleep(1)
+
+# progress_text = "Operation in progress. Please wait."
+# my_bar = st.progress(0, text=progress_text)
+
+# for percent_complete in range(40):
+#     time.sleep(0.05)
+#     Theam(int(percent_complete))
+#     my_bar.progress(percent_complete + 1, text=progress_text)
+# time.sleep(1)
+
+
+
+with elements("Study_Jam"):
+    DATA = [
+        {
+            "id": "Study Jam Finishers",
+            "color": "hsl(191, 70%, 50%)",
+            # "color": "hsl(320, 70%, 50%)",
+            "data": [
+                {"x": 4, "y": 0},
+                {"x": 5, "y": 0},
+                {"x": 6, "y": 0},
+                {"x": 7, "y": 0},
+                {"x": 8, "y": 0},
+                {"x": 9, "y": 0},
+                {"x": 10, "y": 0},
+                {"x": 11, "y": 0},
+                {"x": 12, "y": 0},
+                {"x": 13, "y": 0},
+                {"x": 14, "y": 1},
+                {"x": 15, "y": 1},
+                {"x": 16, "y": 1},
+                {"x": 17, "y": 3},
+                {"x": 18, "y": 9},
+                {"x": 19, "y": 16},
+                {"x": 20, "y": 19},
+                {"x": 21, "y": 21},
+                {"x": 22, "y": 23},
+                {"x": 23, "y": 23},
+                {"x": 24, "y": 28},
+            ]
+        
+        },
+        # {
+        #     "id": "Tier 3",
+        #     "color": "hsl(320, 70%, 50%)",
+        #     "data": [
+        #         {"x": 4, "y": 40},
+        #         {"x": 5, "y": 40},
+        #         {"x": 6, "y": 40},
+        #         {"x": 7, "y": 40},
+        #         {"x": 8, "y": 40},
+        #         {"x": 9, "y": 40},
+        #         {"x": 10, "y": 40},
+        #         {"x": 11, "y": 40},
+        #         {"x": 12, "y": 40},
+        #         {"x": 13, "y": 40},
+        #         {"x": 14, "y": 40},
+        #         {"x": 15, "y": 40},
+        #         {"x": 16, "y": 40},
+        #         {"x": 17, "y": 40},
+        #         {"x": 18, "y": 40},
+        #         {"x": 19, "y": 40},
+        #         {"x": 20, "y": 40},
+        #         {"x": 21, "y": 40},
+        #         {"x": 22, "y": 40},
+        #         {"x": 23, "y": 40},
+        #         {"x": 24, "y": 40},
+        #     ]
+        # },
+        # {
+        #     "id": "Tier 2",
+        #     "color": "hsl(320, 70%, 50%)",
+        #     "data": [
+        #         {"x": 4, "y": 60},
+        #         {"x": 5, "y": 60},
+        #         {"x": 6, "y": 60},
+        #         {"x": 7, "y": 60},
+        #         {"x": 8, "y": 60},
+        #         {"x": 9, "y": 60},
+        #         {"x": 10, "y": 60},
+        #         {"x": 11, "y": 60},
+        #         {"x": 12, "y": 60},
+        #         {"x": 13, "y": 60},
+        #         {"x": 14, "y": 60},
+        #         {"x": 15, "y": 60},
+        #         {"x": 16, "y": 60},
+        #         {"x": 17, "y": 60},
+        #         {"x": 18, "y": 60},
+        #         {"x": 19, "y": 60},
+        #         {"x": 20, "y": 60},
+        #         {"x": 21, "y": 60},
+        #         {"x": 22, "y": 60},
+        #         {"x": 23, "y": 60},
+        #         {"x": 24, "y": 60},
+        #     ]
+        # },
+        # {
+        #     "id": "Tier 1",
+        #     "color": "hsl(320, 70%, 50%)",
+        #     "data": [
+        #         {"x": 4, "y": 80},
+        #         {"x": 5, "y": 80},
+        #         {"x": 6, "y": 80},
+        #         {"x": 7, "y": 80},
+        #         {"x": 8, "y": 80},
+        #         {"x": 9, "y": 80},
+        #         {"x": 10, "y": 80},
+        #         {"x": 11, "y": 80},
+        #         {"x": 12, "y": 80},
+        #         {"x": 13, "y": 80},
+        #         {"x": 14, "y": 80},
+        #         {"x": 15, "y": 80},
+        #         {"x": 16, "y": 80},
+        #         {"x": 17, "y": 80},
+        #         {"x": 18, "y": 80},
+        #         {"x": 19, "y": 80},
+        #         {"x": 20, "y": 80},
+        #         {"x": 21, "y": 80},
+        #         {"x": 22, "y": 80},
+        #         {"x": 23, "y": 80},
+        #         {"x": 24, "y": 80},
+        #     ]
+        # }
+        # {
+        #     "id": "us",
+        #     "color": "hsl(195, 70%, 50%)",
+        #     "data": [
+        #         {"x": "plane", "y": 69},
+        #         {"x": "helicopter", "y": 84},
+        #         {"x": "boat", "y": 64},
+        #         {"x": "train", "y": 73},
+        #         {"x": "subway", "y": 125},
+        #         {"x": "bus", "y": 73},
+        #         {"x": "car", "y": 41},
+        #         {"x": "moto", "y": 244},
+        #         {"x": "bicycle", "y": 148},
+        #         {"x": "horse", "y": 12},
+        #         {"x": "skateboard", "y": 279},
+        #         {"x": "others", "y": 152},
+        #     ]
+        # },
+        # {
+        #     "id": "germany",
+        #     "color": "hsl(312, 70%, 50%)",
+        #     "data": [
+        #         {"x": "plane", "y": 116},
+        #         {"x": "helicopter", "y": 120},
+        #         {"x": "boat", "y": 80},
+        #         {"x": "train", "y": 229},
+        #         {"x": "subway", "y": 229},
+        #         {"x": "bus", "y": 126},
+        #         {"x": "car", "y": 28},
+        #         {"x": "moto", "y": 60},
+        #         {"x": "bicycle", "y": 98},
+        #         {"x": "horse", "y": 234},
+        #         {"x": "skateboard", "y": 244},
+        #         {"x": "others", "y": 232},
+        #     ]
+        # },
+        # {
+        #     "id": "norway",
+        #     "color": "hsl(106, 70%, 50%)",
+        #     "data": [
+        #         {"x": "plane", "y": 225},
+        #         {"x": "helicopter", "y": 205},
+        #         {"x": "boat", "y": 1},
+        #         {"x": "train", "y": 96},
+        #         {"x": "subway", "y": 157},
+        #         {"x": "bus", "y": 285},
+        #         {"x": "car", "y": 200},
+        #         {"x": "moto", "y": 33},
+        #         {"x": "bicycle", "y": 68},
+        #         {"x": "horse", "y": 285},
+        #         {"x": "skateboard", "y": 174},
+        #         {"x": "others", "y": 57},
+        #     ]
+        # }
+    ]
+    with mui.Box(sx={"height": 900}):
+        nivo.Line(
+            data=DATA,
+            margin={ "top": 50, "right": 110, "bottom": 100, "left": 60 },
+            xScale={ "type": "point" },
+            yScale={
+                "type": "linear",
+                "min": "auto",
+                "max": "auto",
+                "stacked": True,
+                "reverse": False
+            },
+            # yFormat=">-.2f",
+            axisTop= None,
+            axisRight= None,
+            axisBottom={
+                "tickSize": 11,
+                "tickPadding": 15,
+                "tickRotation": 0,
+                "legend": 'October',
+                "legendOffset": 56,
+                "legendPosition": 'middle'
+            },
+            axisLeft={
+                "tickSize": 11,
+                "tickPadding": 13,
+                "tickRotation": 15,
+                "legend": "Study Jam Finishers count",
+                "legendOffset": -54,
+                "legendPosition": "middle"
+            },
+            enableGridX=False,
+            enableGridY=False,
+            # enableSlices="y",
+            colors={ 'scheme': 'accent' },
+            enablePointLabel=True,
+            pointLabel="y",
+            pointLabelYOffset=24,
+            lineWidth=6,
+            pointSize=15,
+            pointColor={ "theme": "background" },
+            pointBorderWidth=5,
+            pointBorderColor={ "from": "serieColor" },
+            # pointLabelYOffset=-12,
+            enableArea=True,
+            useMesh=True,
+            legends=[
+                {
+                    "anchor": "bottom-left",
+                    "direction": "column",
+                    "justify": False,
+                    "translateX": 110,
+                    "translateY": 60,
+                    "itemsSpacing": 0,
+                    "itemDirection": "left-to-right",
+                    "itemWidth": 100,
+                    "itemHeight": 20,
+                    "itemOpacity": 0.75,
+                    "symbolSize": 20,
+                    'symbolShape': "circle",
+                    "symbolBorderColor": "rgba(0, 0, 0, .5)",
+                    "effects": [
+                        {
+                            "on": 'hover',
+                            "style": {
+                                "itemBackground": "#111",
+                                "itemOpacity": 1
+                            }
+                        }
+                    ]
+                }
+            ],
+            theme={
+                "background": "#111",
+                "textColor": "#fff",
+                "tooltip": {
+                    "container": {
+                        "background": "#111",
+                        "color": "#fff",
+                    }
+                }
+            }
+
+            )
