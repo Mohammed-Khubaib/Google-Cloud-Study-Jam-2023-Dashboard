@@ -88,7 +88,7 @@ if tabs =='Dashboard':
 
     # Extract the date
     today = current_time.date()
-
+    day = today.day
 
     # Format and print today's date in a custom format (e.g., DD/MM/YYYY)
     formatted_date = today.strftime("%d/%m/%Y")
@@ -96,16 +96,7 @@ if tabs =='Dashboard':
         c7,c8= st.columns([0.15,0.5])
         with c8:
             st.header(formatted_date)
-            today = datetime.date.today()
-            day = today.day
-            # Get the current date
-            current_date = datetime.date.today()
-
-            # Calculate the date 6 days from today
-            six_days_later = current_date + datetime.timedelta(days=6)
-
-            # Calculate the remaining days
-            remaining_days = six_days_later - current_date
+            # today = datetime.date.today()
             st.title(f"! :orange[{30-day}] :red[Days Left] !")
     file = File()
     if file is not None:
