@@ -179,19 +179,17 @@ if tabs =='Dashboard':
             if file is not None:
                 pieChart("Total Completions of both Pathways",Tyes_count,Tno_count)
             st.divider()
-        st.divider()
-        LineChart()
     #---------------------
     with tab[0]:
         st.markdown(
            f'<h1 style="font-family: your-font-family; color: skyblue;">Leader board</h1>',
             unsafe_allow_html=True
         )
+        completion_text = r'''\large \color{limegreen}\text{Total Completions Count: }\color{goldenrod}'''+f'''{Tyes_count}'''
+        st.latex(completion_text)
         if file is not None :
-            # st.dataframe(Df)
-            Df["Score"] =  Df['# of Courses Completed'] +  Df['# of Skill Badges Completed'] +  Df['# of GenAI Game Completed']
-            Df["Rank"] = Df["Score"].rank(method="dense" ,ascending=False)
-            Df["Rank"] =  Df["Rank"].astype("int64")
+            Df = Df.assign(Score=Df['# of Courses Completed'] + Df['# of Skill Badges Completed'] + Df['# of GenAI Game Completed'])
+            Df['Rank'] = Df['Score'].rank(method="dense", ascending=False).astype(int)
             names = Df['Student Name'].tolist()
 
             Df = Df.sort_values("Score",ascending=False,ignore_index=True)
@@ -222,6 +220,11 @@ if tabs =='Dashboard':
             else :
                 st.markdown("#### Tier 3")
                 st.progress(100,f"Total completion {math.trunc((40/40)*100)} %")
+            st.divider()
+            stringg = r'''\huge \color{green} \text{ Study Jam Progress } : \color{orange} 4^{th} \color{green} - \color{orange} '''+f'''{day}^'''+r'''{th}'''
+            st.latex(stringg)
+            st.latex(r'''\large \color{skyblue}\text{Number of Paticipants who completed the campaign}''')
+            LineChart()
     #-------------------
     with tab[2]:
         st.markdown(

@@ -63,7 +63,7 @@ def LineChart():
                     "tickSize": 11,
                     "tickPadding": 13,
                     "tickRotation": 15,
-                    "legend": "Study Jam Finishers count",
+                    "legend": "Completionists",
                     "legendOffset": -54,
                     "legendPosition": "middle"
                 },
@@ -101,7 +101,7 @@ def LineChart():
                             {
                                 "on": 'hover',
                                 "style": {
-                                    "itemBackground": "#111",
+                                    "itemBackground": "#0e1016",
                                     "itemOpacity": 1
                                 }
                             }
@@ -109,11 +109,11 @@ def LineChart():
                     }
                 ],
                 theme={
-                    "background": "#111",
+                    "background": "#0e1016",
                     "textColor": "#fff",
                     "tooltip": {
                         "container": {
-                            "background": "#111",
+                            "background": "#0e1016",
                             "color": "#fff",
                         }
                     }
