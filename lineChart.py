@@ -37,7 +37,7 @@ def LineChart():
             
             }
         ]
-        with mui.Box(sx={"height": 900}):
+        with mui.Box(sx={"height": 700}):
             nivo.Line(
                 data=DATA,
                 margin={ "top": 50, "right": 110, "bottom": 100, "left": 60 },

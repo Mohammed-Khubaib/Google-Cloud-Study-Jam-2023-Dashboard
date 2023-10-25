@@ -250,6 +250,7 @@ def pieChart9(tab,completed_status) :
                         innerRadius=0.5,
                         padAngle=0.7,
                         cornerRadius=3,
+                        colors={ 'scheme': 'nivo' },
                         activeOuterRadiusOffset=8,
                         borderWidth=2,
                         borderColor = {

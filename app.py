@@ -11,6 +11,7 @@ from pieChart import pieChart , pieChart4,pieChart9
 from SheetsConnection import File
 from lineChart import LineChart
 from SubHeadingText import subheadingtext
+import time
 st.set_page_config('GDSC MCET',page_icon="./assets/logo.png",layout="wide")
 st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
 #load lottie files
@@ -92,12 +93,14 @@ if tabs =='Dashboard':
 
     # Format and print today's date in a custom format (e.g., DD/MM/YYYY)
     formatted_date = today.strftime("%d/%m/%Y")
+
     with c2:
-        c7,c8= st.columns([0.15,0.5])
+        c7,c8= st.columns([0.2,0.5])
+        with c7 :
+            st.title(f"! :orange[{31-day}] :red[Days Left] !")
         with c8:
             st.header(formatted_date)
             # today = datetime.date.today()
-            st.title(f"! :orange[{31-day}] :red[Days Left] !")
     file = File()
     if file is not None:
         # Df = pd.read_csv(file)
@@ -125,24 +128,26 @@ if tabs =='Dashboard':
 
     st.divider()
     listTabs = [
+    '$$\color{violet}\\text{Tier Status}$$',
     '$$\color{skyblue}\\text{Leader Board}$$',
+    '$$\color{LimeGreen}\\text{Progress Flow}$$',
     '$$\color{orange}\\text{Progress Tracker}$$',
     '$$\color{red}\\text{Participant Progress}$$',
-    '$$\color{LimeGreen}\\text{Redemption}$$',
+    '$$\color{cyan}\\text{Redemption}$$',
     ]
     whitespace = 5
     tab_labels = [s.center(len(s) + whitespace, "\u2001") for s in listTabs]
     tab = st.tabs(tab_labels)
     #----
-    with tab[3]:
+    with tab[5]:
         st.markdown(
-        f'<h1 style="font-family: your-font-family; color: limegreen;">Redemption Status</h1>',
+        f'<h1 style="font-family: your-font-family; color: cyan;">Redemption Status</h1>',
         unsafe_allow_html=True
         )
         if file is not None:
             pieChart("Redemption Status",Ryes_count,Rno_count)
         st.divider()
-    with tab[1]:
+    with tab[3]:
 
         c9,c10 = st.columns([0.5,0.5])
         c11,c12 = st.columns([0.5,0.5])
@@ -180,14 +185,13 @@ if tabs =='Dashboard':
                 pieChart("Total Completions of both Pathways",Tyes_count,Tno_count)
             st.divider()
     #---------------------
+
     with tab[0]:
-        st.markdown(
-           f'<h1 style="font-family: your-font-family; color: skyblue;">Leader board</h1>',
-            unsafe_allow_html=True
-        )
-        completion_text = r'''\large \color{limegreen}\text{Total Completions Count: }\color{goldenrod}'''+f'''{Tyes_count}'''
-        st.latex(completion_text)
         if file is not None :
+            st.markdown(
+            f'<h1 style="font-family: your-font-family; color: violet;">Tier Status 🚀</h1>',
+                unsafe_allow_html=True
+            )
             Df = Df.assign(Score=Df['# of Courses Completed'] + Df['# of Skill Badges Completed'] + Df['# of GenAI Game Completed'])
             Df['Rank'] = Df['Score'].rank(method="dense", ascending=False).astype(int)
             names = Df['Student Name'].tolist()
@@ -200,34 +204,72 @@ if tabs =='Dashboard':
             # Apply the condition to filter rows
             Ndf = Ndf.loc[condition]
             Ndf.index = range(1, len(Ndf) + 1)
-            st.dataframe(Ndf[['Rank',"Student Name","# of Courses Completed","# of Skill Badges Completed","# of GenAI Game Completed"]],use_container_width=True)
-            st.divider()
-            if(Tyes_count<=80) :
-                st.markdown(f"#### Tier 1 🥇:  :orange[{Tyes_count}/80 participants]")
-                st.progress(Tyes_count/80,f"Total completion {math.trunc((Tyes_count/80)*100)} %")
-            else :
-                st.markdown("#### Tier 1 🥇:  :orange[80/80 participants]")
-                st.progress(100,f"Total completion {math.trunc((80/80)*100)} %")
-            if(Tyes_count<=60):
-                st.markdown(f"#### Tier 2 🥈:  :red[{Tyes_count}/60 participants]")
-                st.progress(Tyes_count/60,f"Total completion {math.trunc((Tyes_count/60)*100)} %")
-            else :
-                st.markdown("#### Tier 2 🥈:  :red[60/60 participants]")
-                st.progress(100,f"Total completion {math.trunc((60/60)*100)} %")
+            # st.dataframe(Ndf[['Rank',"Student Name","# of Courses Completed","# of Skill Badges Completed","# of GenAI Game Completed"]],use_container_width=True)
             if(Tyes_count<=40):
-                st.markdown(f"#### Tier 3 🥉:  :blue[{Tyes_count}/40 participants]")
-                st.progress(Tyes_count/40,f"Total completion {math.trunc((Tyes_count/40)*100)} %")
+                st.markdown(f"#### Tier 3 🥉:  :blue[{Tyes_count}/40 participants] ✅")
+                tier1 = st.progress(0)
+                for percent_complete in range(Tyes_count+1):
+                    time.sleep(0.01)
+                    tier1.progress(percent_complete/40,f"Total completion {math.trunc((percent_complete/40)*100)} %")
             else :
-                st.markdown("#### Tier 3 🥉:  :blue[4/40 participants]")
-                st.progress(100,f"Total completion {math.trunc((40/40)*100)} %")
+                st.markdown("#### Tier 3 🥉:  :blue[4/40 participants] ✅")
+                tier1 = st.progress(0)
+                for percent_complete in range(41):
+                    time.sleep(0.01)
+                    tier1.progress(100,f"Total completion {math.trunc((40/40)*100)} %")
+            time.sleep(0.04)
+            if(Tyes_count<=60):
+
+                st.markdown(f"#### Tier 2 🥈:  :red[{Tyes_count}/60 participants] ⏳")
+                tier2 = st.progress(0)
+                for percent_complete in range(Tyes_count+1):
+                    time.sleep(0.01)
+                    tier2.progress(Tyes_count/60,f"Total completion {math.trunc((Tyes_count/60)*100)} %")
+            else :
+                st.markdown("#### Tier 2 🥈:  :red[60/60 participants] ⏳")
+                tier2 = st.progress(0)
+                for percent_complete in range(Tyes_count+1):
+                    time.sleep(0.01)
+                    tier2.progress(100,f"Total completion {math.trunc((60/60)*100)} %")
+            time.sleep(0.16)
+            if(Tyes_count<=80) :
+                st.markdown(f"#### Tier 1 🥇:  :orange[{Tyes_count}/80 participants] 🎯")
+                tier3 = st.progress(0)
+                for percent_complete in range(Tyes_count+1):
+                    time.sleep(0.01)
+                    tier3.progress(Tyes_count/80,f"Total completion {math.trunc((Tyes_count/80)*100)} %")
+            else :
+                st.markdown("#### Tier 1 🥇:  :orange[80/80 participants] 🎯")
+                tier3 = st.progress(0)
+                for percent_complete in range(Tyes_count+1):
+                    time.sleep(0.01)
+                    tier3.progress(100,f"Total completion {math.trunc((80/80)*100)} %")
+            time.sleep(0.32)
+            st.balloons()
             st.divider()
+    with tab[1]:
+        if file is not None :
+            st.markdown(
+            f'<h1 style="font-family: your-font-family; color: skyblue;">Leader board</h1>',
+                unsafe_allow_html=True
+            )
+            completion_text = r'''\large \color{limegreen}\text{Total Completions Count: }\color{goldenrod}'''+f'''{Tyes_count}'''
+            st.latex(completion_text)
+            st.dataframe(Ndf[['Rank',"Student Name","# of Courses Completed","# of Skill Badges Completed","# of GenAI Game Completed"]],use_container_width=True)
+    with tab[2]:
+            # st.balloons()
+            st.markdown(
+            f'<h1 style="font-family: your-font-family; color: limegreen;">Progress Flow</h1>',
+                unsafe_allow_html=True
+            )
             stringg = r'''\huge \color{skyblue} \text{ Participants who completed the campaign } : \color{darkorange} 4^{th} \color{skyblue} - \color{darkorange} '''+f'''{day}^'''+r'''{th} \color{skyblue}\text{ Oct}'''
             st.latex(stringg)
             completion_text = r'''\large \color{limegreen}\text{Total Completions Count: }\color{goldenrod}'''+f'''{Tyes_count}'''
             st.latex(completion_text)
             LineChart()
+            st.divider()
     #-------------------
-    with tab[2]:
+    with tab[4]:
         st.markdown(
         f'<h3 style="font-family: your-font-family; color: OrangeRed;">If you are a participant then enter Your Name To know your progress :</h3>',
         unsafe_allow_html=True
