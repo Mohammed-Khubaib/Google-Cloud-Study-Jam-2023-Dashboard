@@ -217,7 +217,7 @@ if tabs =='Dashboard':
                 for percent_complete in range(41):
                     time.sleep(0.01)
                     tier1.progress(100,f"Total completion {math.trunc((40/40)*100)} %")
-            time.sleep(0.04)
+            time.sleep(0.01*Tyes_count*2)
             if(Tyes_count<=60):
 
                 st.markdown(f"#### Tier 2 🥈:  :red[{Tyes_count}/60 participants] ⏳")
@@ -231,7 +231,7 @@ if tabs =='Dashboard':
                 for percent_complete in range(Tyes_count+1):
                     time.sleep(0.01)
                     tier2.progress(100,f"Total completion {math.trunc((60/60)*100)} %")
-            time.sleep(0.16)
+            time.sleep(0.01*Tyes_count*2)
             if(Tyes_count<=80) :
                 st.markdown(f"#### Tier 1 🥇:  :orange[{Tyes_count}/80 participants] 🎯")
                 tier3 = st.progress(0)
@@ -244,7 +244,7 @@ if tabs =='Dashboard':
                 for percent_complete in range(Tyes_count+1):
                     time.sleep(0.01)
                     tier3.progress(100,f"Total completion {math.trunc((80/80)*100)} %")
-            time.sleep(0.32)
+            time.sleep(0.01*Tyes_count)
             st.balloons()
             st.divider()
     with tab[1]:
