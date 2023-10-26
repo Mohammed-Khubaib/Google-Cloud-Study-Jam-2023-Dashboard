@@ -95,7 +95,7 @@ if tabs =='Dashboard':
     formatted_date = today.strftime("%d/%m/%Y")
 
     with c2:
-        c7,c8= st.columns([0.4,0.5])
+        c7,c8= st.columns([0.45,0.5])
         with c7 :
             st.title(f"! :orange[{31-day}] :red[Days Left] !")
         with c8:
@@ -207,16 +207,16 @@ if tabs =='Dashboard':
             # st.dataframe(Ndf[['Rank',"Student Name","# of Courses Completed","# of Skill Badges Completed","# of GenAI Game Completed"]],use_container_width=True)
             if(Tyes_count<=40):
                 st.markdown(f"#### Tier 3 🥉:  :blue[{Tyes_count}/40 participants] ✅")
-                tier1 = st.progress(0)
+                tier3 = st.progress(0)
                 for percent_complete in range(Tyes_count+1):
                     time.sleep(0.01)
-                    tier1.progress(percent_complete/40,f"Total completion {math.trunc((percent_complete/40)*100)} %")
+                    tier3.progress(percent_complete/40,f"Total completion {math.trunc((percent_complete/40)*100)} %")
             else :
-                st.markdown("#### Tier 3 🥉:  :blue[4/40 participants] ✅")
-                tier1 = st.progress(0)
+                st.markdown("#### Tier 3 🥉:  :blue[40/40 participants] ✅")
+                tier3 = st.progress(0)
                 for percent_complete in range(41):
                     time.sleep(0.01)
-                    tier1.progress(100,f"Total completion {math.trunc((40/40)*100)} %")
+                    tier3.progress(100,f"Total completion {math.trunc((40/40)*100)} %")
             time.sleep(0.01*Tyes_count*2)
             if(Tyes_count<=60):
 
@@ -234,16 +234,16 @@ if tabs =='Dashboard':
             time.sleep(0.01*Tyes_count*2)
             if(Tyes_count<=80) :
                 st.markdown(f"#### Tier 1 🥇:  :orange[{Tyes_count}/80 participants] 🎯")
-                tier3 = st.progress(0)
+                tier1 = st.progress(0)
                 for percent_complete in range(Tyes_count+1):
                     time.sleep(0.01)
-                    tier3.progress(Tyes_count/80,f"Total completion {math.trunc((Tyes_count/80)*100)} %")
+                    tier1.progress(Tyes_count/80,f"Total completion {math.trunc((Tyes_count/80)*100)} %")
             else :
                 st.markdown("#### Tier 1 🥇:  :orange[80/80 participants] 🎯")
-                tier3 = st.progress(0)
+                tier1 = st.progress(0)
                 for percent_complete in range(Tyes_count+1):
                     time.sleep(0.01)
-                    tier3.progress(100,f"Total completion {math.trunc((80/80)*100)} %")
+                    tier1.progress(100,f"Total completion {math.trunc((80/80)*100)} %")
             time.sleep(0.01*Tyes_count)
             st.balloons()
             st.divider()
