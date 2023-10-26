@@ -185,7 +185,6 @@ if tabs =='Dashboard':
                 pieChart("Total Completions of both Pathways",Tyes_count,Tno_count)
             st.divider()
     #---------------------
-
     with tab[0]:
         if file is not None :
             st.markdown(
@@ -213,10 +212,11 @@ if tabs =='Dashboard':
                     tier3.progress(percent_complete/40,f"Total completion {math.trunc((percent_complete/40)*100)} %")
             else :
                 st.markdown("#### Tier 3 🥉:  :blue[40/40 participants] ✅")
+                percent_complete=0
                 tier3 = st.progress(0)
-                for percent_complete in range(41):
+                for percent_complete in range(101):
                     time.sleep(0.01)
-                    tier3.progress(100,f"Total completion {math.trunc((40/40)*100)} %")
+                    tier3.progress(percent_complete,f"Total completion {math.trunc((40/40)*100)} %")
             time.sleep(0.01*Tyes_count*2)
             if(Tyes_count<=60):
 
@@ -224,26 +224,26 @@ if tabs =='Dashboard':
                 tier2 = st.progress(0)
                 for percent_complete in range(Tyes_count+1):
                     time.sleep(0.01)
-                    tier2.progress(Tyes_count/60,f"Total completion {math.trunc((Tyes_count/60)*100)} %")
+                    tier2.progress(percent_complete/60,f"Total completion {math.trunc((percent_complete/60)*100)} %")
             else :
                 st.markdown("#### Tier 2 🥈:  :red[60/60 participants] ⏳")
                 tier2 = st.progress(0)
-                for percent_complete in range(Tyes_count+1):
+                for percent_complete in range(101):
                     time.sleep(0.01)
-                    tier2.progress(100,f"Total completion {math.trunc((60/60)*100)} %")
+                    tier2.progress(percent_complete,f"Total completion {math.trunc((60/60)*100)} %")
             time.sleep(0.01*Tyes_count*2)
             if(Tyes_count<=80) :
                 st.markdown(f"#### Tier 1 🥇:  :orange[{Tyes_count}/80 participants] 🎯")
                 tier1 = st.progress(0)
                 for percent_complete in range(Tyes_count+1):
                     time.sleep(0.01)
-                    tier1.progress(Tyes_count/80,f"Total completion {math.trunc((Tyes_count/80)*100)} %")
+                    tier1.progress(percent_complete/80,f"Total completion {math.trunc((percent_complete/80)*100)} %")
             else :
                 st.markdown("#### Tier 1 🥇:  :orange[80/80 participants] 🎯")
                 tier1 = st.progress(0)
-                for percent_complete in range(Tyes_count+1):
+                for percent_complete in range(101):
                     time.sleep(0.01)
-                    tier1.progress(100,f"Total completion {math.trunc((80/80)*100)} %")
+                    tier1.progress(percent_complete,f"Total completion {math.trunc((80/80)*100)} %")
             time.sleep(0.01*Tyes_count)
             st.balloons()
             st.divider()
