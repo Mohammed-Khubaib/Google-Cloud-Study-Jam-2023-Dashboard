@@ -95,7 +95,7 @@ if tabs =='Dashboard':
     formatted_date = today.strftime("%d/%m/%Y")
 
     with c2:
-        c7,c8= st.columns([0.2,0.5])
+        c7,c8= st.columns([0.4,0.5])
         with c7 :
             st.title(f"! :orange[{31-day}] :red[Days Left] !")
         with c8:
