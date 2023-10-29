@@ -1,1 +1,6 @@
 *.csv
+# Ignore the __pycache__ directory
+__pycache__/
+
+# Ignore the progress_chart.py file
+progress_chart.py
