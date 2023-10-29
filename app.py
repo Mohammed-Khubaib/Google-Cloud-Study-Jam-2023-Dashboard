@@ -203,7 +203,7 @@ if tabs =='Dashboard':
                 unsafe_allow_html=True
             )
             progressBar("Tier 3", 40, Tyes_count, "blue", "🥉", "✅")
-            progressBar("Tier 2", 60, Tyes_count, "red", "🥈", "⏳")
+            progressBar("Tier 2", 60, Tyes_count, "red", "🥈", "✅")
             progressBar("Tier 1", 80, Tyes_count, "orange", "🥇", "🎯")
             st.balloons()
             st.divider()
