@@ -1,5 +1,6 @@
 
 # Google Cloud Study Jam (GCSJ) - GDSC MCET
+## Dashboard
 
 This repository contains the code for the Study Jam web application that helps you track progress, view the leader board, and more.
 
