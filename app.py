@@ -12,6 +12,7 @@ from SheetsConnection import File
 from lineChart import LineChart
 from SubHeadingText import subheadingtext
 from ProgressBar import progressBar
+from sortLeaderBoard import Sort_List
 st.set_page_config('GDSC MCET',page_icon="./assets/logo.png",layout="wide")
 st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
 #load lottie files
@@ -89,6 +90,7 @@ if file is not None:
     condition = ~(Ndf[["# of Courses Completed", "# of GenAI Game Completed", "# of Skill Badges Completed"]] == 0).all(axis=1)
     # Apply the condition to filter rows
     Ndf = Ndf.loc[condition]
+    Ndf = Sort_List(Ndf)
     Ndf.index = range(1, len(Ndf) + 1)
 
 
@@ -215,7 +217,7 @@ if tabs =='Dashboard':
             )
             completion_text = r'''\large \color{limegreen}\text{Total Completions Count: }\color{goldenrod}'''+f'''{Tyes_count}'''
             st.latex(completion_text)
-            st.dataframe(Ndf[['Rank',"Student Name","# of Courses Completed","# of Skill Badges Completed","# of GenAI Game Completed"]],use_container_width=True)
+            st.dataframe(Ndf[["Student Name","# of Courses Completed","# of Skill Badges Completed","# of GenAI Game Completed"]],use_container_width=True)
     with tab[2]:
             # st.balloons()
             st.markdown(
