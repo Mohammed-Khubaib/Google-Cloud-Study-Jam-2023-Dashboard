@@ -93,7 +93,7 @@ if file is not None:
     condition = ~(Ndf[["# of Courses Completed", "# of GenAI Game Completed", "# of Skill Badges Completed"]] == 0).all(axis=1)
     # Apply the condition to filter rows
     Ndf = Ndf.loc[condition]
-    Ndf = Sort_List(Ndf)
+    # Ndf = Sort_List(Ndf)
     Ndf.index = range(1, len(Ndf) + 1)
 
 
