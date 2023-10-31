@@ -135,7 +135,8 @@ if tabs =='Dashboard':
     with c2:
         c7,c8= st.columns([0.45,0.5])
         with c7 :
-            st.title(f"! :orange[{31-day}] :red[Days Left] !")
+            # st.title(f"! :orange[{31-day}] :red[Days Left] !")
+            pass
         with c8:
             st.header(formatted_date)
             # today = datetime.date.today()
