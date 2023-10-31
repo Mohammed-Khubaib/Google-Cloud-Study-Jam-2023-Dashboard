@@ -70,6 +70,9 @@ if file is not None:
     Tno_count = (Df['Total Completions of both Pathways'] == 'No').sum()
     # Calculate the frequency of values in '# of Courses Completed'
     courses_completed_frequency = Df['# of Courses Completed'].value_counts()
+    for i in range(0,4):
+        if i not in courses_completed_frequency:
+            courses_completed_frequency[i]=0
     # Calculate the frequency of values in '# of Skill Badges Completed'
     skill_badges_completed_frequency = Df['# of Skill Badges Completed'].value_counts()
     for i in range(0,5):
