@@ -93,7 +93,7 @@ if file is not None:
     condition = ~(Ndf[["# of Courses Completed", "# of GenAI Game Completed", "# of Skill Badges Completed"]] == 0).all(axis=1)
     # Apply the condition to filter rows
     Ndf = Ndf.loc[condition]
-    Ndf = Sort_List(Ndf)
+    # Ndf = Sort_List(Ndf)
     Ndf.index = range(1, len(Ndf) + 1)
 
 
@@ -136,13 +136,9 @@ if tabs =='Dashboard':
     formatted_date = today.strftime("%d/%m/%Y")
 
     with c2:
-        c7,c8= st.columns([0.45,0.5])
-        with c7 :
-            # st.title(f"! :orange[{31-day}] :red[Days Left] !")
-            pass
+        c7,c8,c9= st.columns([0.2,0.4,0.3])
         with c8:
             st.header(formatted_date)
-            # today = datetime.date.today()
 
     st.divider()
     listTabs = [
@@ -228,7 +224,7 @@ if tabs =='Dashboard':
             f'<h1 style="font-family: your-font-family; color: limegreen;">Progress Flow</h1>',
                 unsafe_allow_html=True
             )
-            stringg = r'''\huge \color{skyblue} \text{ Participants who completed the campaign } : \color{darkorange} 4^{th} \color{skyblue} - \color{darkorange} '''+f'''{day}^'''+r'''{th} \color{skyblue}\text{ Oct}'''
+            stringg = r'''\huge \color{skyblue} \text{ Participants who completed the campaign } : \color{darkorange} 4^{th}  \color{skyblue}\text{ Oct} - \color{darkorange} '''+f'''2^'''+r'''{th} \color{skyblue}\text{ Nov}'''
             st.latex(stringg)
             completion_text = r'''\large \color{limegreen}\text{Total Completions Count: }\color{goldenrod}'''+f'''{Tyes_count}'''
             st.latex(completion_text)
